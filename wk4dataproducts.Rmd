@@ -1,0 +1,34 @@
+---
+title: "Wk 4 Data Products"
+author: "Andy Wu"
+date: "5/7/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(dplyr)
+data(mtcars)
+```
+
+## Predicting Total Cost of Gas
+
+Budgeting is an important part of American lives.  Transportation (or Driving) is a huge part of american society and part of the american budget is always spent on gas. Manufacturers do give mpg but most of the time they give the number on the higher end. In this app I predict the mpg of a car based on the cars total weight and cylinders 
+
+## Data Used for the prediction model
+Below here you can see the summary of the data used to feed the algorithim.
+
+```{r rawdata, echo = TRUE}
+str(mtcars)
+```
+
+
+## Model Accuracy
+Based on the summary below, you can see that the coeffiecents are within a 95% confidence interval for teh model itself.  The Rsquared is around 83% of the data which means most of the variation can be explained by the model itself.
+```{r modelfit, echo = TRUE}
+modelfit <- lm(mpg~wt+as.numeric(cyl), data = mtcars)
+summary(modelfit)
+```
+
+## Ease of Use
+The App itself has 4 main inputs on the left side and thats it! It's extremely easy to use for anyone who want's a quick calculation of their estimated spend on gas!
